@@ -1,0 +1,43 @@
+17:44:11 **** Incremental Build of configuration Debug for project climate_control ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU GCC Compiler
+/home/mark/repositories/climate_control/climate_control/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -DSTM32L0 -DNUCLEO_L031K6 -DSTM32 -DSTM32L031K6Tx -DDEBUG -DSTM32L031xx -I"/home/mark/repositories/climate_control/climate_control/inc" -I"/home/mark/repositories/climate_control/climate_control/CMSIS/core" -I"/home/mark/repositories/climate_control/climate_control/CMSIS/device" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:274:9: warning: return type of 'main' is not 'int' [-Wmain]
+ int16_t main (void)
+         ^~~~
+../src/main.c: In function 'main':
+../src/main.c:845:44: warning: passing argument 2 of 'handle_settings_keys' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+             handle_settings_keys(keyvalue, &fanrunminutes, ADDR_fanrunminutes, &application_state,
+                                            ^
+../src/main.c:253:6: note: expected 'int16_t * {aka short int *}' but argument is of type 'volatile int16_t * {aka volatile short int *}'
+ void handle_settings_keys(uint8_t keyvalue, int16_t* temperature_parameter, uint16_t parameter_eeprom_address, app_state_e *applicaton_state, widget_t * widget, app_state_e draw_previous_screen_state, app_state_e draw_screen_state)
+      ^~~~~~~~~~~~~~~~~~~~
+../src/main.c:854:44: warning: passing argument 2 of 'handle_settings_keys' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+             handle_settings_keys(keyvalue, &fanidleminutes, ADDR_fanidleminutes, &application_state,
+                                            ^
+../src/main.c:253:6: note: expected 'int16_t * {aka short int *}' but argument is of type 'volatile int16_t * {aka volatile short int *}'
+ void handle_settings_keys(uint8_t keyvalue, int16_t* temperature_parameter, uint16_t parameter_eeprom_address, app_state_e *applicaton_state, widget_t * widget, app_state_e draw_previous_screen_state, app_state_e draw_screen_state)
+      ^~~~~~~~~~~~~~~~~~~~
+At top level:
+../src/main.c:37:22: warning: 'light_off' defined but not used [-Wunused-const-variable=]
+ static const uint8_t light_off[34] = {16,16,    0,0,0,248,204,2,3,129,193,225,115,58,158,254,7,3,0,96,112,56,31,14,127,243,241,240,124,14,3,0,0,0,};
+                      ^~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: climate_control.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -T"/home/mark/repositories/climate_control/climate_control/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "climate_control.elf" @"objects.list"   -lm
+Finished building target: climate_control.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "climate_control.elf" "climate_control.bin"
+arm-none-eabi-size "climate_control.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24900	   1120	   2200	  28220	   6e3c	climate_control.elf
+ 
+
+17:44:11 Build Finished (took 370ms)
+
